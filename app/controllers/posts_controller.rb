@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    Rails.logger.ap ['@post1', @posts]
   end
 
   # GET /posts/1
@@ -16,9 +15,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    Rails.logger.ap ['@post1', @post]
     @post = Post.new
-    Rails.logger.ap ['@post2', @post]
   end
 
   # GET /posts/1/edit
@@ -28,9 +25,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    Rails.logger.ap ['params', params]
     @post = Post.new post_params
-    Rails.logger.ap ['@post2', @post]
 
     respond_to do |format|
       if @post.save
